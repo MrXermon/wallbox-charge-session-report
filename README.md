@@ -17,7 +17,7 @@ Once the virtual environment is prepared, join the shell into the environment.
 
 ```bash
 jgilla@Kerberos wallbox-charge-session-report % source .venv/bin/activate
-(.venv) jgilla@Kerberos data-mover %
+(.venv) jgilla@Kerberos wallbox-charge-session-report %
 ```
 
 ## Parameters
