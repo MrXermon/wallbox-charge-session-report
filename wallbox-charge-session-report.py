@@ -153,7 +153,7 @@ if __name__ == '__main__':
                         energy_sum = 0
                         for session in charge_sessions[sn]:
                             energy_sum += session['energy']
-                            print(session['start_date'] + "\t" + session['start_time'] + "\t" + str(round(session['energy'] / 100, 2)) + 'kWh')
+                            print(session['start_date'] + "\t" + session['start_time'] + "\t" + str(round(session['energy'] / 1000, 2)) + 'kWh')
 
                         print('Σ ' + str(round(energy_sum / 1000, 2)) + 'kWh x ' + str(config['app']['cost']) + ' €/kWh = ' + str(round(energy_sum / 1000 * config['app']['cost'], 2)) + '€')
                         print()
