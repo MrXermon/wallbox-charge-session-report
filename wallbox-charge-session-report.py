@@ -264,10 +264,13 @@ if __name__ == '__main__':
                             pdf_table_duration = pdf.beginText(pdf_w * 0.4, pdf_h * 0.55)
                             pdf_table_duration.textLine('Dauer')
                             pdf_table_duration.textLine('')
-                            pdf_table_usage = pdf.beginText(pdf_w * 0.55, pdf_h * 0.55)
+                            pdf_table_sn = pdf.beginText(pdf_w * 0.51, pdf_h * 0.55)
+                            pdf_table_sn.textLine('S/N')
+                            pdf_table_sn.textLine('')
+                            pdf_table_usage = pdf.beginText(pdf_w * 0.675, pdf_h * 0.55)
                             pdf_table_usage.textLine('Verbrauch')
                             pdf_table_usage.textLine('')
-                            pdf_table_costs = pdf.beginText(pdf_w * 0.75, pdf_h * 0.55)
+                            pdf_table_costs = pdf.beginText(pdf_w * 0.825, pdf_h * 0.55)
                             pdf_table_costs.textLine('Kosten')
                             pdf_table_costs.textLine('')
 
@@ -278,6 +281,7 @@ if __name__ == '__main__':
                                 pdf_table_date.textLine(session['start_date'])
                                 pdf_table_time.textLine(session['start_time'])
                                 pdf_table_duration.textLine(session['duration'])
+                                pdf_table_sn.textLine(car['sn'])
                                 pdf_table_usage.textLine(str(round(session['energy'] / 1000, 2)) + ' kWh')
                                 pdf_table_costs.textLine(str(round(session['energy'] / 1000 * config['power']['cost'], 2)) + ' €')
 
@@ -292,6 +296,7 @@ if __name__ == '__main__':
                             pdf.drawText(pdf_table_date)
                             pdf.drawText(pdf_table_time)
                             pdf.drawText(pdf_table_duration)
+                            pdf.drawText(pdf_table_sn)
                             pdf.drawText(pdf_table_usage)
                             pdf.drawText(pdf_table_costs)
 
