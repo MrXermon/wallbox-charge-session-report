@@ -267,10 +267,10 @@ if __name__ == '__main__':
                             pdf_table_sn = pdf.beginText(pdf_w * 0.51, pdf_h * 0.55)
                             pdf_table_sn.textLine('S/N')
                             pdf_table_sn.textLine('')
-                            pdf_table_usage = pdf.beginText(pdf_w * 0.675, pdf_h * 0.55)
+                            pdf_table_usage = pdf.beginText(pdf_w * 0.69, pdf_h * 0.55)
                             pdf_table_usage.textLine('Verbrauch')
                             pdf_table_usage.textLine('')
-                            pdf_table_costs = pdf.beginText(pdf_w * 0.825, pdf_h * 0.55)
+                            pdf_table_costs = pdf.beginText(pdf_w * 0.83, pdf_h * 0.55)
                             pdf_table_costs.textLine('Kosten')
                             pdf_table_costs.textLine('')
 
