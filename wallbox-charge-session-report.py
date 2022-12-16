@@ -246,10 +246,8 @@ if __name__ == '__main__':
                             pdf.drawText(pdf_textblock)
 
                             # Add text.
-                            pdf_textblock = pdf.beginText(pdf_w * 0.1, pdf_h * 0.64)
-                            pdf_textblock.textLine('Der Zeitraum der Zählererfassung ist der o.g. Zeitraum jeweils von 00:00 bis 23:59 Uhr.')
-                            pdf_textblock.textLine('Ich bitte um Erstattung der Kosten im Rahmen des steuerfreien Auslagenersatzes.')
-                            pdf.drawText(pdf_textblock)
+                            pdf.drawString(pdf_w * 0.1, pdf_h * 0.6275, 'Der Zeitraum der Zählererfassung ist der o.g. Zeitraum jeweils von 00:00 Uhr bis 23:59 Uhr.')
+                            pdf.drawString(pdf_w * 0.1, pdf_h * 0.075, 'Ich bitte um Erstattung der Kosten im Rahmen des steuerfreien Auslagenersatzes.')
 
                             # Add line.
                             pdf.line(pdf_w * 0.1, pdf_h * 0.595, pdf_w * 0.9, pdf_h * 0.595)
@@ -265,7 +263,7 @@ if __name__ == '__main__':
                             pdf_table_duration.textLine('Dauer')
                             pdf_table_duration.textLine('')
                             pdf_table_sn = pdf.beginText(pdf_w * 0.51, pdf_h * 0.55)
-                            pdf_table_sn.textLine('S/N')
+                            pdf_table_sn.textLine('RFID-Tag')
                             pdf_table_sn.textLine('')
                             pdf_table_usage = pdf.beginText(pdf_w * 0.69, pdf_h * 0.55)
                             pdf_table_usage.textLine('Verbrauch')
@@ -282,15 +280,15 @@ if __name__ == '__main__':
                                 pdf_table_time.textLine(session['start_time'])
                                 pdf_table_duration.textLine(session['duration'])
                                 pdf_table_sn.textLine(car['sn'])
-                                pdf_table_usage.textLine(str(round(session['energy'] / 1000, 2)) + ' kWh')
-                                pdf_table_costs.textLine(str(round(session['energy'] / 1000 * config['power']['cost'], 2)) + ' €')
+                                pdf_table_usage.textLine('{:4.2f}'.format(round(session['energy'] / 1000, 2)) + ' kWh')
+                                pdf_table_costs.textLine('{:4.2f}'.format(round(session['energy'] / 1000 * config['power']['cost'], 2)) + ' €')
 
                             
                             # Add sum to the end.
                             pdf_table_usage.textLine('')
-                            pdf_table_usage.textLine(str(round(energy_sum / 1000, 2)) + ' kWh')
+                            pdf_table_usage.textLine('{:.2f}'.format(round(energy_sum / 1000, 2)) + ' kWh')
                             pdf_table_costs.textLine('')
-                            pdf_table_costs.textLine(str(round(energy_sum / 1000 * config['power']['cost'], 2)) + ' €')
+                            pdf_table_costs.textLine('{:.2f}'.format(round(energy_sum / 1000 * config['power']['cost'], 2)) + ' €')
 
                             # Render table.
                             pdf.drawText(pdf_table_date)
