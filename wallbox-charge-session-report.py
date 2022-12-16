@@ -199,10 +199,16 @@ if __name__ == '__main__':
                                 pagesize=A4
                             )
                             pdf.setTitle('Verbrauchsabrechnung Strombezug')
+
+                            # Add kreditor to PDF.
+                            pdf.setFont('Helvetica', 8)
+                            pdf.drawString(pdf_w * 0.1, pdf_h * 0.925, car['kreditor'].strip().replace("\n", ', '))
+
+                            # Set global font and font-size.
                             pdf.setFont('Helvetica', 10)
 
                             # Add debitor to PDF.
-                            pdf_textblock = pdf.beginText(pdf_w * 0.1, pdf_h * 0.925)
+                            pdf_textblock = pdf.beginText(pdf_w * 0.1, pdf_h * 0.9)
                             for line in car['debitor'].split("\n"):
                                 pdf_textblock.textLine(line)
                             pdf.drawText(pdf_textblock)
