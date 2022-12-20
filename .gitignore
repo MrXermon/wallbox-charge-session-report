@@ -7,3 +7,4 @@
 
 # Ignore application specific data.
 config.yml
+export/*.pdf
